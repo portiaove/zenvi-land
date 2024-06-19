@@ -1,0 +1,56 @@
+---
+import { Icon } from "astro-icon/components";
+import Link from "./Link.astro";
+const size = 125;
+---
+
+<nav class="navbar" id="navbar">
+  <Icon name="zenvi_logo" size={size} />
+  <Link href="/hello.html" text="Acceder" icon="user_icon" />
+</nav>
+
+<script>
+  let lastScrollTop = 0;
+  const navbar = document.getElementById("navbar");
+
+  window.addEventListener("scroll", function () {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop) {
+      navbar.classList.add("hidden");
+    } else {
+      navbar.classList.remove("hidden");
+    }
+
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+  });
+</script>
+
+<style>
+  .navbar {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: var(--nav-bar-height);
+    width: 100%;
+    padding: var(--nav-bar-padding);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgb(42, 213, 127);
+    /* background: var(--bg-color); */
+    transition: transform 0.3s ease;
+  }
+  .navbar > [data-icon="zenvi_logo"] {
+    margin-bottom: 8px;
+  }
+  .hidden {
+    transform: translateY(-100%);
+  }
+  @media (max-width: 600px) {
+    .navbar {
+      padding: var(--nav-bar-padding) 1rem;
+    }
+  }
+</style>

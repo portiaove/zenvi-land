@@ -1,0 +1,41 @@
+---
+import { Icon } from "astro-icon/components";
+
+export interface Props {
+  href: string;
+  text: string;
+  icon?: string;
+}
+
+const { href, text, icon = null } = Astro.props as Props;
+const iconSize = 18;
+---
+
+<a href={href} class="button-link">
+  {icon && <Icon name={icon} class="icon" size={iconSize} />}
+  <span>{text}</span>
+</a>
+
+<style>
+  .button-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    background-color: #f1f5f9;
+    border-radius: 100px;
+    text-decoration: none;
+    color: #000;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .button-link:hover {
+    background-color: var(--bg-color);
+  }
+  /* .button-link:hover {
+
+    } */
+  .button-link .icon {
+    margin-right: 8px;
+  }
+</style>

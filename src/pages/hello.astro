@@ -1,0 +1,30 @@
+---
+import Card from "../components/Card.astro";
+import Layout from "../layouts/Layout.astro";
+
+
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hello</title>
+</head>
+<body>
+    <Layout title="Welcome to Astro.">
+    <div>
+        <span>Freak</span>
+        <span>this</span>
+        <span>shit</span>
+        <span>out</span>
+    </div>
+    <div><Card
+        href="https://docs.astro.build/"
+        title="Documentation"
+        body="Learn how Astro works and explore the official API docs."
+    /></div>
+</Layout>
+</body>
+</html>
