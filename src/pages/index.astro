@@ -1,125 +1,225 @@
 ---
+import { Icon } from "astro-icon/components";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Card from "../components/Card.astro";
 import NavBar from "../components/NavBar.astro";
+import Link from "../components/Link.astro";
+import { ROUTES } from "../constants";
 ---
 
-<BaseLayout title="Welcome to Astro.">
+<BaseLayout title="Welcome to Zenvi!">
   <NavBar />
   <main>
-    <h1>Welcome to <span class="text-gradient">Astro</span></h1>
-    <p class="instructions">
-      To get started, open the directory <code>src/pages</code> in your project.<br
-      />
-      <strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-    </p>
-    <ul role="list" class="link-card-grid">
-      <Card
-        href="https://docs.astro.build/"
-        title="Documentation"
-        body="Learn how Astro works and explore the official API docs."
-      />
-      <Card
-        href="https://astro.build/integrations/"
-        title="Integrations"
-        body="Supercharge your project with new frameworks and libraries."
-      />
-      <Card
-        href="https://astro.build/themes/"
-        title="Themes"
-        body="Explore a galaxy of community-built starter themes."
-      />
-      <Card
-        href="https://astro.build/chat/"
-        title="Community"
-        body="Come say hi to our amazing Discord community. ❤️"
-      />
-      <Card
-        href="https://docs.astro.build/"
-        title="Documentation"
-        body="Learn how Astro works and explore the official API docs."
-      />
-      <Card
-        href="https://astro.build/integrations/"
-        title="Integrations"
-        body="Supercharge your project with new frameworks and libraries."
-      />
-      <Card
-        href="https://astro.build/themes/"
-        title="Themes"
-        body="Explore a galaxy of community-built starter themes."
-      />
-      <Card
-        href="https://astro.build/chat/"
-        title="Community"
-        body="Come say hi to our amazing Discord community. ❤️"
-      />
-      <Card
-        href="https://docs.astro.build/"
-        title="Documentation"
-        body="Learn how Astro works and explore the official API docs."
-      />
-      <Card
-        href="https://astro.build/integrations/"
-        title="Integrations"
-        body="Supercharge your project with new frameworks and libraries."
-      />
-      <Card
-        href="https://astro.build/themes/"
-        title="Themes"
-        body="Explore a galaxy of community-built starter themes."
-      />
-      <Card
-        href="https://astro.build/chat/"
-        title="Community"
-        body="Come say hi to our amazing Discord community. ❤️"
-      />
-      <Card
-        href="https://docs.astro.build/"
-        title="Documentation"
-        body="Learn how Astro works and explore the official API docs."
-      />
-      <Card
-        href="https://astro.build/integrations/"
-        title="Integrations"
-        body="Supercharge your project with new frameworks and libraries."
-      />
-      <Card
-        href="https://astro.build/themes/"
-        title="Themes"
-        body="Explore a galaxy of community-built starter themes."
-      />
-      <Card
-        href="https://astro.build/chat/"
-        title="Community"
-        body="Come say hi to our amazing Discord community. ❤️"
-      />
-      <Card
-        href="https://docs.astro.build/"
-        title="Documentation"
-        body="Learn how Astro works and explore the official API docs."
-      />
-      <Card
-        href="https://astro.build/integrations/"
-        title="Integrations"
-        body="Supercharge your project with new frameworks and libraries."
-      />
-      <Card
-        href="https://astro.build/themes/"
-        title="Themes"
-        body="Explore a galaxy of community-built starter themes."
-      />
-      <Card
-        href="https://astro.build/chat/"
-        title="Community"
-        body="Come say hi to our amazing Discord community. ❤️"
-      />
-    </ul>
+    <section class="section">
+      <h1>La tranquilidad de saber que nunca pagas de más</h1>
+      <p class="instructions">
+        Cambiaremos tu contrato de luz automáticamente para que cada mes pagues
+        lo mínimo
+      </p>
+      <Link href={ROUTES.APP} text="Empezar" variant="orange" />
+    </section>
+
+    <section class="hand-img-container">
+      <img src="/hand_image.png" alt="Mano buscando el ahorro" />
+      <a href={ROUTES.APP}>
+        <Icon name="dot_icon" class="dot_icon" />
+        <span>Vuelve a disfrutar de la luz</span>
+      </a>
+    </section>
+
+    <section class="section">
+      <h2>Tu factura siempre con el contrato más barato</h2>
+      <p>
+        Revisamos todas las posibilidades para tu caso y automáticamente
+        contratarás la tarifa más barata
+      </p>
+      <Icon name="chart" class="chart" />
+      <Link href={ROUTES.APP} text="Empezar" variant="orange" />
+    </section>
+
+    <section class="tranquilidad">
+      <div class="tranquilidad-text-box">
+        <h2>Valora la tranquilidad de no pagar de más. Nunca.</h2>
+        <a href={ROUTES.APP}>
+          Empezar <Icon name="arrow_right" class="arrow_right" />
+        </a>
+      </div>
+      <div class="tranquilidad-image-box">
+        <img src="/wave_image.png" alt="Ola muy buenas" />
+      </div>
+    </section>
+
+    <section class="play-tranquilidad">
+      <span>Enciende</span>
+      <div class="button-circle">
+        <Icon name="arrows_grey" class="arrows_grey" />
+      </div>
+      <span>la tranquilidad</span>
+    </section>
   </main>
 </BaseLayout>
 
 <style>
   main {
-    margin-top: calc(var(--nav-bar-height) + 16px);
+    margin-top: calc(var(--nav-bar-height) + 11px);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+  }
+
+  .section {
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+  }
+
+  .section > p {
+    max-width: 550px;
+  }
+
+  .hand-img-container {
+    position: relative;
+    display: inline-block;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .hand-img-container > img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: inherit;
+  }
+
+  .hand-img-container > a {
+    width: max-content;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 100px;
+    text-decoration: none;
+    color: #000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
+  }
+  .hand-img-container > a:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+
+  .dot_icon {
+    margin-right: 8px;
+    background-color: orange;
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+  }
+
+  .chart {
+    height: auto;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .tranquilidad {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .tranquilidad-text-box,
+  .tranquilidad-image-box {
+    height: 340px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #e0f0f0;
+    overflow: hidden;
+  }
+
+  .tranquilidad-image-box {
+    padding: 0;
+  }
+
+  .tranquilidad-image-box > img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .tranquilidad-text-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .tranquilidad-text-box > h2 {
+    text-align: start;
+  }
+  .tranquilidad-text-box > a {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+  }
+
+  .arrow_right {
+    margin-left: 8px;
+    color: orange;
+  }
+
+  .play-tranquilidad {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .play-tranquilidad > span {
+    color: var(--grey-color);
+  }
+
+  .button-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 200px;
+    background-color: #f8f9fa;
+    border-radius: 50%;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .arrows_grey {
+    width: 60px;
+    height: 60px;
+  }
+
+  @media (min-width: 768px) {
+    .tranquilidad {
+      flex-direction: row;
+    }
+    .play-tranquilidad {
+      flex-direction: row;
+    }
+
+    .tranquilidad-text-box,
+    .tranquilidad-image-box {
+      width: 50%;
+      height: auto;
+    }
   }
 </style>

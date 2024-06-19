@@ -12,7 +12,7 @@ const { title } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <link
@@ -27,17 +27,42 @@ const { title } = Astro.props;
 <style is:global>
   :root {
     --bg-color: #e6ebeb;
+    --orange-color: #fe4902;
+    --orange-color-light: #ff6624;
+    --grey-color: #999999;
     --nav-bar-height: 8vh;
     --nav-bar-padding: 2rem;
+
+    --base-font-size: 1rem;
+    --min-font-size: 14px;
+    --max-font-size: 20px;
+    --min-line-height: 1.4;
+    --max-line-height: 1.8;
   }
-  html {
-    font-family: "Plus Jakarta Sans", "Roboto", "Oxygen", sans-serif;
-    background: var(--bg-color);
-  }
+
   *,
   *::before,
   *::after {
     box-sizing: border-box;
+    font-weight: 300;
+  }
+
+  body {
+    font-size: clamp(
+      var(--min-font-size),
+      1vw + var(--base-font-size),
+      var(--max-font-size)
+    );
+    line-height: clamp(
+      var(--min-line-height),
+      1.2vw + var(--min-line-height),
+      var(--max-line-height)
+    );
+    font-family: "Plus Jakarta Sans", "Roboto", "Oxygen", sans-serif;
+    background: var(--bg-color);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   body,
@@ -54,5 +79,49 @@ const { title } = Astro.props;
   dd {
     margin: 0;
     padding: 0;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 4vw + 1rem, 4rem);
+    line-height: 1.1;
+  }
+
+  h2 {
+    font-size: clamp(1.75rem, 3.5vw + 0.875rem, 3.5rem);
+    line-height: 1.2;
+  }
+
+  h3 {
+    font-size: clamp(1.5rem, 3vw + 0.75rem, 3rem);
+    line-height: 1.3;
+  }
+
+  h4 {
+    font-size: clamp(1.25rem, 2.5vw + 0.625rem, 2.5rem);
+    line-height: 1.4;
+  }
+
+  h5 {
+    font-size: clamp(1rem, 2vw + 0.5rem, 2rem);
+    line-height: 1.5;
+  }
+
+  h6 {
+    font-size: clamp(0.875rem, 1.75vw + 0.4375rem, 1.75rem);
+    line-height: 1.6;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.3;
+    font-weight: 400;
+    color: var(--grey-color);
+  }
+
+  span {
+    font-size: 1rem;
+    line-height: 1.3;
+    font-weight: 600;
   }
 </style>

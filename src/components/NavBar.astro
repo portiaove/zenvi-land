@@ -1,12 +1,13 @@
 ---
 import { Icon } from "astro-icon/components";
 import Link from "./Link.astro";
+import { ROUTES } from "../constants";
 const size = 125;
 ---
 
 <nav class="navbar" id="navbar">
   <Icon name="zenvi_logo" size={size} />
-  <Link href="/hello.html" text="Acceder" icon="user_icon" />
+  <Link href={ROUTES.APP} text="Acceder" icon="user_icon" />
 </nav>
 
 <script>
