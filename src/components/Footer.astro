@@ -1,0 +1,81 @@
+---
+import { Icon } from "astro-icon/components";
+import { ROUTES } from "../constants";
+---
+
+<footer class="footer">
+  <a href={ROUTES.HOME}>
+    <Icon name="zenvi_logo_white" class="footer-logo" />
+  </a>
+  <div class="footer-bottom">
+    <div class="footer-links">
+      <a href={ROUTES.PRIVACY_POLICY}>Política de privacidad</a>
+      <span>//</span>
+      <a href={ROUTES.LEGAL}>Aviso Legal</a>
+    </div>
+    <span class="footer-copyright">© 2024 Todos los derechos reservados</span>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: #1a1a1a;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  .footer-logo {
+    height: 60px;
+    width: auto;
+  }
+
+  .footer-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .footer-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+  }
+
+  .footer-links a {
+    color: #b3b3b3;
+    text-decoration: none;
+  }
+
+  .footer-links a:hover {
+    color: var(--orange-color-light);
+  }
+
+  .footer-links span {
+    color: #b3b3b3;
+  }
+
+  .footer-links a,
+  .footer-links span {
+    margin: 0 5px;
+  }
+
+  .footer-copyright {
+    color: #b3b3b3;
+    font-size: 14px;
+  }
+
+  @media (min-width: 768px) {
+    .footer-bottom {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+</style>

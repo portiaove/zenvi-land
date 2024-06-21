@@ -4,6 +4,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import NavBar from "../components/NavBar.astro";
 import Link from "../components/Link.astro";
 import { ROUTES } from "../constants";
+import PlayLink from "../components/Home/PlayLink.astro";
 ---
 
 <BaseLayout title="Welcome to Zenvi!">
@@ -48,12 +49,8 @@ import { ROUTES } from "../constants";
       </div>
     </section>
 
-    <section class="play-tranquilidad">
-      <span>Enciende</span>
-      <div class="button-circle">
-        <Icon name="arrows_grey" class="arrows_grey" />
-      </div>
-      <span>la tranquilidad</span>
+    <section>
+      <PlayLink />
     </section>
   </main>
 </BaseLayout>
@@ -179,40 +176,8 @@ import { ROUTES } from "../constants";
     color: orange;
   }
 
-  .play-tranquilidad {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 20px;
-    padding: 20px;
-  }
-
-  .play-tranquilidad > span {
-    color: var(--grey-color);
-  }
-
-  .button-circle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 200px;
-    height: 200px;
-    background-color: #f8f9fa;
-    border-radius: 50%;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  }
-
-  .arrows_grey {
-    width: 60px;
-    height: 60px;
-  }
-
   @media (min-width: 768px) {
     .tranquilidad {
-      flex-direction: row;
-    }
-    .play-tranquilidad {
       flex-direction: row;
     }
 
