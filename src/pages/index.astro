@@ -5,6 +5,7 @@ import NavBar from "../components/NavBar.astro";
 import Link from "../components/Link.astro";
 import { ROUTES } from "../constants";
 import PlayLink from "../components/Home/PlayLink.astro";
+import CardShuffler from "../components/Home/CardShuffler.astro";
 ---
 
 <BaseLayout title="Welcome to Zenvi!">
@@ -51,6 +52,14 @@ import PlayLink from "../components/Home/PlayLink.astro";
 
     <section>
       <PlayLink />
+    </section>
+    <section class="cardShufflerWrapper">
+      <div class="shufflerfixedContent">
+        <h2>Es simple, solo tres pasos y lo tenemos</h2>
+        <Link href={ROUTES.APP} text="Empezar" variant="orange" />
+      </div>
+      <div class="shufflerContainer"></div>
+      <CardShuffler />
     </section>
   </main>
 </BaseLayout>
@@ -176,6 +185,26 @@ import PlayLink from "../components/Home/PlayLink.astro";
     color: orange;
   }
 
+  .cardShufflerWrapper {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .shufflerfixedContent {
+    top: 0;
+    padding: 20px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+  }
+  .shufflerfixedContent > h2 {
+    text-align: center;
+  }
+
   @media (min-width: 768px) {
     .tranquilidad {
       flex-direction: row;
@@ -185,6 +214,22 @@ import PlayLink from "../components/Home/PlayLink.astro";
     .tranquilidad-image-box {
       width: 50%;
       height: auto;
+    }
+
+    .cardShufflerWrapper {
+      flex-direction: row;
+      gap: 20px;
+    }
+
+    .shufflerfixedContent {
+      position: sticky;
+      padding-top: var(--nav-bar-height);
+      height: 100vh;
+      width: 50%;
+      align-items: start;
+    }
+    .shufflerfixedContent > h2 {
+      text-align: start;
     }
   }
 </style>

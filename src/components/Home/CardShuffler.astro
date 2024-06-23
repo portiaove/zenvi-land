@@ -1,0 +1,130 @@
+---
+import { CARDS_CONTENT } from "../../constants";
+---
+
+<div class="container" style={`--cards: ${CARDS_CONTENT.length};`}>
+  <ul id="cards">
+    {
+      CARDS_CONTENT.map((card, idx) => (
+        <li class="card" style={`--index: ${idx + 1}`}>
+          <div class="card-body">
+            <h1>{idx + 1}</h1>
+            <div>
+              <h2>{card.title}</h2>
+              <p>{card.subtitle}</p>
+            </div>
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</div>
+
+<style>
+  :root {
+    --cardHeight: 80vh;
+    --cardTopPadding: 1.5em;
+    --cardMargin: 4vw;
+    --default-color: #d6e4e4;
+    --sticky-color: #ffffff;
+  }
+
+  .container {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  #cards {
+    list-style: none;
+    padding-left: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(var(--cards), var(--cardHeight));
+    gap: var(--cardMargin);
+    padding-bottom: calc(var(--cards) * var(--cardTopPadding));
+    margin-bottom: var(--cardMargin);
+  }
+
+  .card {
+    position: sticky;
+    top: 0;
+    padding-top: calc(
+      var(--index) * var(--cardTopPadding) + var(--nav-bar-height)
+    );
+  }
+
+  .card-body {
+    box-sizing: border-box;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.3);
+    height: var(--cardHeight);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    transition: all 0.3s;
+    background-color: var(--default-color);
+    color: #606060;
+  }
+
+  .card-body > div {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .card-body > div > * {
+    text-align: start;
+  }
+
+  .card.sticky .card-body {
+    background-color: var(--sticky-color);
+  }
+
+  .card.sticky > .card-body > h1 {
+    color: var(--orange-color);
+  }
+
+  .card.sticky .card-body div h2 {
+    color: #181818;
+  }
+
+  @media (max-width: 768px) {
+    .card-body {
+      padding: 30px;
+      height: 70vh;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+</style>
+
+<script>
+  const cards = document.querySelectorAll(".card");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("sticky");
+        } else {
+          entry.target.classList.remove("sticky");
+        }
+      });
+    },
+    { threshold: [0.9] }
+  );
+
+  cards.forEach((card) => observer.observe(card));
+</script>
