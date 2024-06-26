@@ -1,0 +1,110 @@
+.facturaCard {
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.inputWrapper {
+  display: flex;
+  gap: 10px;
+}
+
+.inputWrapper > *:nth-child(1) {
+  flex: 3;
+}
+
+.inputWrapper > *:nth-child(2) {
+  flex: 1;
+}
+
+& > input[type="checkbox"] {
+  transform: scale(1.5);
+  margin: 10px;
+}
+
+.checkboxContainer {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.checkboxContainer > * {
+  cursor: pointer;
+}
+
+.fileUploader {
+  border: 2px dashed #cccccc;
+  border-radius: 5px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  margin-bottom: 20px;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.fileUploader.dragOver {
+  background-color: #e9e9e9;
+  border-color: #333333;
+}
+
+.fileUploader input[type="file"] {
+  display: none;
+}
+
+.fileUploader label {
+  cursor: pointer;
+}
+
+.fileUploader p {
+  margin-top: 10px;
+  color: #666666;
+  width: 100%;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  position: relative;
+  width: 250px;
+}
+
+.removeButton {
+  background-color: transparent;
+  border: none;
+  color: red;
+  cursor: pointer;
+  font-size: 16px;
+  position: absolute;
+  left: 10px;
+}
+
+.fileName {
+  margin-left: 30px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .inputWrapper {
+    flex-direction: column;
+  }
+}

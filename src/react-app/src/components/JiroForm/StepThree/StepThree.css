@@ -1,0 +1,26 @@
+#facturas {
+  display: none;
+}
+
+.custom-button-wrapper {
+  width: fit-content;
+  button.custom-button {
+    width: fit-content;
+    align-self: center;
+    font-size: 20px;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
+
+  .custom-button-label {
+    padding-left: 8px;
+    cursor: pointer;
+  }
+}
+
+.headerContainer {
+  text-align: center;
+  margin-bottom: 0px; /* Adjust this value to add space below the header */
+}

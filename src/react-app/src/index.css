@@ -1,0 +1,71 @@
+/* global css variables */
+:root {
+  --bg-color: #e6ebeb;
+  --orange-color: #ff5722;
+  --orange-light-color: #ff8a50;
+  --disabled-bg-color: #e0e0e0;
+  --disabled-text-color: #a0a0a0;
+}
+
+body {
+  background-color: var(--bg-color);
+  margin: 0;
+  font-family: "Plus Jakarta Sans", "Roboto", "Oxygen", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+a {
+  color: var(--orange-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: 300;
+  line-height: 2rem;
+}
+
+.custom-button {
+  box-sizing: border-box;
+  background-color: var(--orange-color);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 0.5em 1.5em;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.custom-button:hover {
+  background-color: var(--orange-light-color);
+}
+
+.custom-button:disabled {
+  background-color: var(--disabled-bg-color);
+  color: var(--disabled-text-color);
+  cursor: not-allowed;
+}

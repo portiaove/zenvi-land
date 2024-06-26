@@ -5,11 +5,13 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "npm run build:react && astro build",
+    "build:react": "cd src/react-app && npm run build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/react": "^3.6.0",
     "astro": "^4.10.2",
     "astro-icon": "^1.1.0"
   }

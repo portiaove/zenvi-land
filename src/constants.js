@@ -1,5 +1,5 @@
 export const ROUTES = {
-  APP: "/hello",
+  APP: "/app",
   HOME: "/",
   PRIVACY_POLICY: "#",
   LEGAL: "#",
